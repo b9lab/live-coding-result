@@ -1,3 +1,4 @@
+// Found here https://gist.github.com/xavierlepretre/88682e871f4ad07be4534ae560692ee6
 web3.eth.getTransactionReceiptMined = function (txnHash, interval) {
   var transactionReceiptAsync;
   interval = interval ? interval : 500;
@@ -21,6 +22,7 @@ web3.eth.getTransactionReceiptMined = function (txnHash, interval) {
   });
 };
 
+// Found here https://gist.github.com/xavierlepretre/afab5a6ca65e0c52eaf902b50b807401
 var getEventsPromise = function (myFilter, count) {
   return new Promise(function (resolve, reject) {
     count = count ? count : 1;
@@ -40,6 +42,7 @@ var getEventsPromise = function (myFilter, count) {
   });
 };
 
+// Found here https://gist.github.com/xavierlepretre/d5583222fde52ddfbc58b7cfa0d2d0a9
 var expectedExceptionPromise = function (action, gasToUse) {
   return new Promise(function (resolve, reject) {
       try {

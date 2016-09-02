@@ -1,3 +1,4 @@
+// Found here https://gist.github.com/xavierlepretre/88682e871f4ad07be4534ae560692ee6
 web3.eth.getTransactionReceiptMined = function (txnHash, interval) {
   var transactionReceiptAsync;
   interval = interval ? interval : 500;
