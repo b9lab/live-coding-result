@@ -58,6 +58,7 @@ app.controller("appStoreController", [ '$scope', '$location', '$http', '$q', '$w
 
 	$window.onload = function () {
 
+		initUtils(web3);
 		web3.eth.getAccounts(function(err, accs) {
 			if (err != null) {
 			  alert("There was an error fetching your accounts.");

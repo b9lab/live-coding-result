@@ -149,5 +149,4 @@ contract('AppStore', function(accounts) {
 
   });
   
-
 });
