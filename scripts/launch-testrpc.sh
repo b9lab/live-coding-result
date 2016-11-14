@@ -1,0 +1,1 @@
+testrpc --accounts="5"
