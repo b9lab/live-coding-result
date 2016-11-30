@@ -1,9 +1,10 @@
 pragma solidity ^0.4.4;
 
 import "Owned.sol";
+import "AppStoreI.sol";
 import "WarehouseI.sol";
 
-contract AppStore is Owned {
+contract AppStore is Owned, AppStoreI {
 	struct Product {
 		string name;
 		uint price;	
@@ -12,9 +13,6 @@ contract AppStore is Owned {
 	mapping(uint => Product) public products;
 	uint[] public ids;
 	address public warehouse;
-
-	event LogProductAdded(uint id, string name, uint price);
-	event LogProductPurchased(uint id, address customer);
 
 	function AppStore(address _warehouse) {
 		warehouse = _warehouse;
