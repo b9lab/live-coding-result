@@ -1,3 +1,5 @@
+pragma solidity ^0.4.4;
+
 contract Owned {
 	address public owner;
 
@@ -7,6 +9,6 @@ contract Owned {
 
 	modifier fromOwner {
 		if (msg.sender != owner) throw;
-		_
+		_;
 	}
 }

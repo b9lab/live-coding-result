@@ -1,3 +1,5 @@
+pragma solidity ^0.4.4;
+
 import "Owned.sol";
 import "WarehouseI.sol";
 
@@ -35,6 +37,7 @@ contract AppStore is Owned {
 	}
 
 	function buyProduct(uint id)
+		payable
 		returns (bool successful) {
 		if (msg.value < products[id].price)	{
 			throw;
