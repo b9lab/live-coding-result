@@ -20,7 +20,7 @@ contract AppStore is Owned {
 		warehouse = _warehouse;
 	}
 
-	function count() returns (uint length) {
+	function productCount() constant returns (uint length) {
 		return ids.length;	
 	}
 
