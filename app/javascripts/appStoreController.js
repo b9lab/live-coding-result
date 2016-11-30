@@ -27,13 +27,13 @@ app.controller("appStoreController", [ '$scope', '$location', '$http', '$q', '$w
 
 	$scope.collectProducts = function() {
 
-		AppStore.deployed().count.call()
+		AppStore.deployed().getProductCount()
 			.then(function (count) {
 				if (count.valueOf() > 0) {
 					for (var i = 0; i < count.valueOf(); i++) {
-						AppStore.deployed().ids(i)
+						AppStore.deployed().getProductIdAt(i)
 							.then(function (id) {
-								return AppStore.deployed().products(id.valueOf())
+								return AppStore.deployed().getProduct(id.valueOf())
 									.then(function (values) {
 										$timeout(function () {
 											$scope.products.push({

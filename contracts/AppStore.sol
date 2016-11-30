@@ -10,16 +10,31 @@ contract AppStore is Owned, AppStoreI {
 		uint price;	
 	}
 
-	mapping(uint => Product) public products;
-	uint[] public ids;
+	mapping(uint => Product) private products;
+	uint[] private ids;
 	address public warehouse;
 
 	function AppStore(address _warehouse) {
 		warehouse = _warehouse;
 	}
 
-	function productCount() constant returns (uint length) {
+	function getProductCount() constant returns (uint length) {
 		return ids.length;	
+	}
+
+	function getProductIdAt(uint index)
+		constant
+		returns (uint id) {
+		return ids[index];
+	}
+
+	function getProduct(uint id)
+		constant
+		returns (string name, uint price) {
+		Product product = products[id];
+		return (
+			product.name,
+			product.price);
 	}
 
 	function addProduct(uint id, string name, uint price)

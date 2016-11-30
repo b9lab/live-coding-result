@@ -72,7 +72,7 @@ contract('AppStore', function(accounts) {
   it("should start with empty product list", function() {
     var appStore = AppStore.deployed();
 
-    return appStore.productCount.call()
+    return appStore.getProductCount.call()
 	    .then(function(count) {
 	      assert.equal(count.valueOf(), 0, "should start with no product");
 	    });
@@ -111,15 +111,15 @@ contract('AppStore', function(accounts) {
 	    	assert.equal(eventArgs.id.valueOf(), 1, "should be the product id");
 	    	assert.equal(eventArgs.name, "shirt", "should be the product name");
 	    	assert.equal(eventArgs.price.valueOf(), 10, "should be the product price");
-	    	return appStore.productCount.call();
+	    	return appStore.getProductCount.call();
 	    })
 	    .then(function(count) {
 	      assert.equal(count.valueOf(), 1, "should have add a product");
-	      return appStore.ids(0);
+	      return appStore.getProductIdAt(0);
 	  	})
 	  	.then(function (id) {
 	  	  assert.equal(id.valueOf(), 1, "should be the first id");
-	      return appStore.products(1);
+	      return appStore.getProduct(1);
 	    })
 	    .then(function(values) {
 	    	assert.equal(values[0], "shirt", "should be the product name");
